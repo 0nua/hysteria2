@@ -1,0 +1,19 @@
+listen: 0.0.0.0:443
+
+tls:
+  cert: /cert/fullchain.pem
+  key: /cert/privkey.pem
+
+auth:
+ type: password
+ password: password
+
+masquerad:
+ type: proxy
+ proxy:
+  url: https://www.google.com
+  rewriteHost: true
+
+bandwidth:
+ up: 20 mbps
+ down: 40 mbps
