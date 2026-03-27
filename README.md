@@ -1,7 +1,7 @@
 # Installation
 1. Rename config.example.yaml -> config.yaml
 2. Set up password
-3. Add certificate
+3. Generate certificate and update config
 ```bash
 openssl req -x509 -nodes -newkey rsa:2048 \
 -keyout ./cert/server.key \
