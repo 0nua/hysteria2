@@ -1,19 +1,23 @@
-listen: 0.0.0.0:443
+listen: :8443
 
 tls:
-  cert: /cert/fullchain.pem
-  key: /cert/privkey.pem
+  cert: /cert/server.crt
+  key: /cert/server.key
 
 auth:
- type: password
- password: password
+  type: password
+  password: 
 
-masquerad:
- type: proxy
- proxy:
-  url: https://www.google.com
-  rewriteHost: true
+obfs:
+  type: salamander
+  salamander:
+    password: ""
 
-bandwidth:
- up: 20 mbps
- down: 40 mbps
+masquerade:
+  type: proxy
+  proxy:
+    url: https://www.bing.com
+    rewriteHost: true
+  forceHTTPS: true
+
+ignoreClientBandwidth: true
