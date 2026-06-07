@@ -4,12 +4,12 @@
 3. Generate certificate and update config
 ```bash
 export DEDYN_TOKEN="your-token-here"
-export DEDYN_NAME="domain.com"
+export DEDYN_NAME="domain.dedyn.io"
 
-acme.sh --issue --dns dns_desec -d <your_domain> --server letsencrypt
+acme.sh --issue --dns dns_desec -d domain.dedyn.io --server letsencrypt
 
 Then install:
-acme.sh --install-cert -d <your_domain> \
+acme.sh --install-cert -d domain.dedyn.io \
   --cert-file /cert/server.crt \
   --key-file /cert/server.key
 ```
