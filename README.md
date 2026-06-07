@@ -3,12 +3,15 @@
 2. Set up password
 3. Generate certificate and update config
 ```bash
-openssl req -x509 -nodes -newkey rsa:2048 \
--keyout ./cert/server.key \
--out ./cert/server.crt \
--days 3650 \
--subj "/CN=YOUR_SERVER_IP" \
--addext "subjectAltName=IP:YOUR_SERVER_IP"
+export DEDYN_TOKEN="your-token-here"
+export DEDYN_NAME="domain.com"
+
+acme.sh --issue --dns dns_desec -d <your_domain> --server letsencrypt
+
+Then install:
+acme.sh --install-cert -d <your_domain> \
+  --cert-file /cert/server.crt \
+  --key-file /cert/server.key
 ```
 4. Run docker container
 ```bash
@@ -16,5 +19,5 @@ docker-compose up -d
 ```
 5. Connection link
 ```
-hysteria2://<password>@<ip>:443?obfs=salamander&sni=<domain>&insecure=1#<Name>
+hysteria2://<password>@<ip|domain>:<port>?obfs=salamander&obfs-password=&sni=
 ```
