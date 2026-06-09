@@ -4,8 +4,18 @@ services:
     container_name: hysteria2
     restart: always
     network_mode: host
-    privileged: true
     volumes:
       - $PWD/config.yaml:/etc/hysteria/config.yaml
+      - /cert:/cert
+    command: server -c /etc/hysteria/config.yaml
+
+  hysteria2-hopping:
+    image: tobyxdd/hysteria:latest
+    container_name: hysteria2-hopping
+    restart: always
+    network_mode: host
+    privileged: true
+    volumes:
+      - $PWD/config-hopping.yaml:/etc/hysteria/config.yaml
       - /cert:/cert
     command: server -c /etc/hysteria/config.yaml
