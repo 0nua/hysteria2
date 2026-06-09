@@ -4,8 +4,7 @@ services:
     container_name: hysteria2
     restart: always
     network_mode: host
-    cap_add:
-      - NET_ADMIN
+    privileged: true
     volumes:
       - $PWD/config.yaml:/etc/hysteria/config.yaml
       - /cert:/cert
