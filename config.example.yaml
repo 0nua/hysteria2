@@ -18,6 +18,8 @@ masquerade:
   proxy:
     url: https://www.bing.com
     rewriteHost: true
+  listenHTTP: :80
+  listenHTTPS: :443  
   forceHTTPS: true
 
 ignoreClientBandwidth: true
